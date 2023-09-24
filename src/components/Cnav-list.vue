@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="sm:flex justify-between r">
+    <ul class="sm:flex justify-between">
       <li class="list_item-style">HOME</li>
       <li class="list_item-style">HEADPHONES</li>
       <li class="list_item-style">SPEAKERS</li>

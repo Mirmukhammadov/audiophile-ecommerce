@@ -17,7 +17,7 @@
           />
         </div>
       </div>
-      <CnavListVue class="max-w-[430px] w-full hidden md:visible" />
+      <CnavListVue class="w-full max-w-[430px] text-center hide" />
       <div>
         <img
           src="../assets/shared/desktop/icon-cart.svg"
@@ -32,3 +32,11 @@
 <script setup>
 import CnavListVue from "./Cnav-list.vue";
 </script>
+
+<style scoped>
+@media only screen and (max-width: 768px) {
+  .hide {
+    display: none;
+  }
+}
+</style>

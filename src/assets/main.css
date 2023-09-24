@@ -7,3 +7,55 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+
+.heading {
+  color: black;
+  font-family: Manrope;
+  font-weight: 700;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.heading1 {
+  color: white;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+}
+
+.heading2 {
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 1.43px;
+}
+
+.heading3 {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1.14px;
+}
+
+.heading-4 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.heading-5 {
+  font-size: 24px;
+  letter-spacing: 1.71px;
+}
+
+.heading-6 {
+  font-size: 18px;
+  letter-spacing: 1.29px;
+}
+
+.paragraph-desktop {
+  opacity: 0.5;
+  color: black;
+  font-size: 15px;
+  font-family: Manrope;
+  font-weight: 500;
+  line-height: 25px;
+  word-wrap: break-word;
+}

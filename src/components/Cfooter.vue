@@ -14,7 +14,7 @@
         <CnavList class="max-w-[430px] w-full md:mt-0 mt-5 text-center" />
       </div>
       <div
-        class="flex justify-center sm:justify-between items-center py-10 flex-wrap"
+        class="flex justify-center sm:justify-between items-end py-10 flex-wrap"
       >
         <p
           class="max-w-[540px] w-full opacity-50 text-white text-[15px] font-medium font-['Manrope'] leading-[25px]"
