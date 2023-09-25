@@ -1,10 +1,16 @@
 <template>
   <div>
     <ul class="sm:flex justify-between">
-      <li class="list_item-style">HOME</li>
-      <li class="list_item-style">HEADPHONES</li>
-      <li class="list_item-style">SPEAKERS</li>
-      <li class="list_item-style">EARPHONES</li>
+      <router-link to="/"><li class="list_item-style">HOME</li></router-link>
+      <router-link to="/headphones"
+        ><li class="list_item-style">HEADPHONES</li></router-link
+      >
+      <router-link to="/speakers"
+        ><li class="list_item-style">SPEAKERS</li></router-link
+      >
+      <router-link to="/earphones"
+        ><li class="list_item-style">EARPHONES</li></router-link
+      >
     </ul>
   </div>
 </template>

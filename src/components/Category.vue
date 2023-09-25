@@ -9,11 +9,7 @@
         <div
           class="max-w-[123px] max-h-[160px] absolute left-1/2 top-[10%] transform -translate-x-1/2 -translate-y-1/2"
         >
-          <img
-            src="../assets/shared/desktop/image-category-thumbnail-headphones.png"
-            :alt="obj.heading"
-            class="w-full h-full"
-          />
+          <img :src="obj.img" :alt="obj.heading" class="w-full h-full" />
         </div>
         <div class="pt-20 pb-5 text-center">
           <h3 class="text-center heading-6 heading">
@@ -41,17 +37,17 @@ import { ref } from "vue";
 const categoryValue = [
   {
     id: 0,
-    img: "../assets/shared/desktop/image-category-thumbnail-headphones.png",
+    img: "src/assets/shared/desktop/image-category-thumbnail-headphones.png",
     heading: "HEADPHONES",
   },
   {
     id: 1,
-    img: "../assets/shared/desktop/image-category-thumbnail-speakers.png",
+    img: "src/assets/shared/desktop/image-category-thumbnail-speakers.png",
     heading: "SPEAKERS",
   },
   {
     id: 2,
-    img: "../assets/shared/desktop/image-category-thumbnail-earphones.png",
+    img: "src/assets/shared/desktop/image-category-thumbnail-earphones.png",
     heading: "EARPHONES",
   },
 ];

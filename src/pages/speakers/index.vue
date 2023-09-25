@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Cheader :categoryName="headphone[0].category" />
-    <div v-for="item in headphone" :key="item.id">
+    <Cheader :categoryName="speakers[0].category" />
+    <div v-for="item in speakers" :key="item.id">
       <div class="mt-[100px]">
         <Productdetail :headphoneValue="item" />
       </div>
@@ -26,13 +26,12 @@ import PrefooterVue from "../../components/Prefooter.vue";
 import CategoryVue from "../../components/Category.vue";
 import CfooterVue from "../../components/Cfooter.vue";
 
-const headphone = ref([]);
+const speakers = ref([]);
 fetch("/src/data.json")
   .then((response) => response.json())
   .then((data) => {
-    headphone.value = data.filter((item) => {
-      return item.category === "headphones";
+    speakers.value = data.filter((item) => {
+      return item.category === "speakers";
     });
-    console.log(headphone.value);
   });
 </script>
