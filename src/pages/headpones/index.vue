@@ -3,7 +3,9 @@
     <Cheader :categoryName="headphone[0].category" />
     <div v-for="item in headphone" :key="item.id">
       <div class="mt-[100px]">
-        <Productdetail :headphoneValue="item" @buttonclicked="getId" />
+        <router-link :to="'/headphones/' + item.id">
+          <Productdetail :headphoneValue="item" @buttonclicked="getId" />
+        </router-link>
       </div>
     </div>
     <div class="mt-10">

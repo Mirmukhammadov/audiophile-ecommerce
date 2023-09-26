@@ -34,6 +34,12 @@ const router = createRouter({
       name: "Earphones",
       component: Earphones,
     },
+
+    {
+      path: "/headphones/:id",
+      name: "HeadphoneDetail",
+      component: () => import("@/pages/headpones/head.vue"),
+    },
   ],
 });
 createApp(App).use(router).mount("#app");

@@ -12,7 +12,6 @@
         class="w-full h-full"
       />
     </div>
-
     <div class="flex flex-col max-w-[445px] space-y-5 ml-5">
       <span
         v-if="props.headphoneValue.new"
@@ -34,9 +33,8 @@
 
 <script setup>
 import { ref, defineProps } from "vue";
-
 const props = defineProps(["headphoneValue"]);
 
-console.log(props.headphoneValue.id, "1");
+console.log(props.headphoneValue, "1");
 import cbutton from "./Cbutton.vue";
 </script>
