@@ -27,8 +27,7 @@
       >
         {{ props.headphoneValue.description }}
       </paragraph>
-
-      <cbutton />
+      <cbutton @click="$emit('buttonclicked', props.headphoneValue.id)" />
     </div>
   </div>
 </template>
@@ -37,6 +36,7 @@
 import { ref, defineProps } from "vue";
 
 const props = defineProps(["headphoneValue"]);
-console.log(props.headphoneValue, "1");
+
+console.log(props.headphoneValue.id, "1");
 import cbutton from "./Cbutton.vue";
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div id="app"></div>
-
   <!-- <headpones /> -->
   <!-- <speakers /> -->
   <!-- <earphones /> -->
   <!-- <OthersVue /> -->
+  <!-- <GalleryVue /> -->
   <router-view></router-view>
 </template>
 
@@ -19,4 +19,6 @@ import headpones from "./pages/headpones/index.vue";
 import speakers from "./pages/speakers/index.vue";
 import earphones from "./pages/earphones/index.vue";
 import OthersVue from "./components/Others.vue";
+import GalleryVue from "./components/Gallery.vue";
+import aydi from "./pages/headpones/head.vue";
 </script>

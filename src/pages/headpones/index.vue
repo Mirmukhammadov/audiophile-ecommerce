@@ -3,7 +3,7 @@
     <Cheader :categoryName="headphone[0].category" />
     <div v-for="item in headphone" :key="item.id">
       <div class="mt-[100px]">
-        <Productdetail :headphoneValue="item" />
+        <Productdetail :headphoneValue="item" @buttonclicked="getId" />
       </div>
     </div>
     <div class="mt-10">
@@ -33,6 +33,9 @@ fetch("/src/data.json")
     headphone.value = data.filter((item) => {
       return item.category === "headphones";
     });
-    console.log(headphone.value);
   });
+
+function getId(id) {
+  item.value = id;
+}
 </script>

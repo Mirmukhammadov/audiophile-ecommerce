@@ -9,6 +9,8 @@ import Headphones from "@/pages/headpones/index.vue";
 import Speakers from "@/pages/speakers/index.vue";
 import Earphones from "@/pages/earphones/index.vue";
 
+// import HeadphonesDetail from "@/pages/headpones/HeadphonesDetail.vue";
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
