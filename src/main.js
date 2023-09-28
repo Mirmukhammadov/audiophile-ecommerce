@@ -5,7 +5,7 @@ import App from "./App.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/pages/index.vue";
-import Headphones from "@/pages/headpones/index.vue";
+import Headphones from "@/pages/headphones.vue";
 import Speakers from "@/pages/speakers/index.vue";
 import Earphones from "@/pages/earphones/index.vue";
 
@@ -38,7 +38,7 @@ const router = createRouter({
     {
       path: "/headphones/:id",
       name: "HeadphoneDetail",
-      component: () => import("@/pages/headpones/head.vue"),
+      component: () => import("@/pages/head.vue"),
     },
   ],
 });

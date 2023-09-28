@@ -5,8 +5,8 @@
     </h3>
     <ul class="flex sm:flex-row flex-col justify-between items-center">
       <li
-        v-for="item in 3"
-        :key="item"
+        v-for="item in props.othersValue"
+        :key="item.id"
         class="flex-col space-y-9 items-center md:ml-8 ml-2 sm:mt-0 mt-4"
       >
         <div>
@@ -16,7 +16,7 @@
           />
         </div>
         <div class="text-center space-y-9">
-          <p class="heading heading-5">XX99 MARK II</p>
+          <p class="heading heading-5">{{ item.name }}</p>
           <CbuttonVue class="items-center" />
         </div>
       </li>
@@ -26,4 +26,8 @@
 
 <script setup>
 import CbuttonVue from "./Cbutton.vue";
+import { defineProps } from "vue";
+
+const props = defineProps(["othersValue"]);
+console.log(props.othersValue);
 </script>

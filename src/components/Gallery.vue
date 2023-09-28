@@ -2,7 +2,7 @@
   <div class="flex justify-between container">
     <div class="flex flex-col space-y-4">
       <img
-        src="../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg"
+        :src="getImageUrl(props.galleryValue.first.desktop)"
         alt=""
         class="w-full h-full bg-zinc-100 rounded-lg"
       />
@@ -20,4 +20,15 @@
       />
     </div>
   </div>
+  <pre>{{ props.galleryValue.first.desktop }}</pre>
 </template>
+
+<script setup>
+import { defineProps } from "vue";
+
+const props = defineProps(["galleryValue"]);
+
+function getImageUrl(relativePath) {
+  return `${process.env.BASE_URL}src/${relativePath.slice(2)}`;
+}
+</script>

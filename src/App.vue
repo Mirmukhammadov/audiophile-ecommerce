@@ -15,10 +15,10 @@ import Category from "./components/Category.vue";
 import Prefooter from "./components/Prefooter.vue";
 import Cbutton from "./components/Cbutton.vue";
 import Productdetail from "./components/Product-detail.vue";
-import headpones from "./pages/headpones/index.vue";
+// import headpones from "./pages/headpones/index.vue";
 import speakers from "./pages/speakers/index.vue";
 import earphones from "./pages/earphones/index.vue";
 import OthersVue from "./components/Others.vue";
 import GalleryVue from "./components/Gallery.vue";
-import aydi from "./pages/headpones/head.vue";
+// import aydi from "./pages/headpones/head.vue";
 </script>
