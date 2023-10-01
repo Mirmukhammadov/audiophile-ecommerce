@@ -7,16 +7,14 @@
       <li
         v-for="item in props.othersValue"
         :key="item.id"
-        class="flex-col space-y-9 items-center md:ml-8 ml-2 sm:mt-0 mt-4"
+        class="flex-col space-y-9 justify-between md:mr-2 mr-2 sm:mt-0 mt-4"
       >
-        <div>
-          <img
-            src="../assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
-            alt=""
-          />
+        <div class="bg-zinc-100 rounded-lg">
+          <img :src="'src/' + item.image.desktop" :alt="item.image.desktop" />
         </div>
         <div class="text-center space-y-9">
           <p class="heading heading-5">{{ item.name }}</p>
+
           <CbuttonVue class="items-center" />
         </div>
       </li>
@@ -29,5 +27,5 @@ import CbuttonVue from "./Cbutton.vue";
 import { defineProps } from "vue";
 
 const props = defineProps(["othersValue"]);
-console.log(props.othersValue);
+console.log(props.othersValue, "othersvalue");
 </script>

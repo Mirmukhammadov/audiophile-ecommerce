@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex justify-center">
+  <div class="container flex justify-start space-x-24">
     <div class="max-w-[635px] w-full space-y-8">
       <h3 class="heading3 heading">FEATURES</h3>
       <p

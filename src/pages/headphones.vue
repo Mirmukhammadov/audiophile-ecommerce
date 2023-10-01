@@ -3,7 +3,7 @@
     <Cheader :categoryName="headphone[2].category" />
     <div v-for="item in headphone" :key="item.id">
       <div class="mt-[100px]">
-        <router-link :to="'/headphones/' + item.id">
+        <router-link :to="'/' + item.id">
           <Productdetail :headphoneValue="item" @buttonclicked="getId" />
         </router-link>
       </div>
@@ -36,8 +36,4 @@ fetch("/src/data.json")
       return item.category == "headphones";
     });
   });
-
-// function getId(id) {
-//   item.value = id;
-// }
 </script>

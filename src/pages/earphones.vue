@@ -3,7 +3,9 @@
     <Cheader :categoryName="earphones[0].category" />
     <div v-for="item in earphones" :key="item.id">
       <div class="mt-[100px]">
-        <Productdetail :headphoneValue="item" />
+        <router-link :to="'/' + item.id">
+          <Productdetail :headphoneValue="item" />
+        </router-link>
       </div>
     </div>
     <div class="mt-10">
@@ -22,9 +24,9 @@
 import { ref } from "vue";
 import Productdetail from "@/components/Product-detail.vue";
 import Cheader from "@/components/Cheader.vue";
-import PrefooterVue from "../../components/Prefooter.vue";
-import CategoryVue from "../../components/Category.vue";
-import CfooterVue from "../../components/Cfooter.vue";
+import PrefooterVue from "../components/Prefooter.vue";
+import CategoryVue from "../components/Category.vue";
+import CfooterVue from "../components/Cfooter.vue";
 
 const earphones = ref([]);
 fetch("/src/data.json")

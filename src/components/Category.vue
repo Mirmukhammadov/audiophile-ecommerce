@@ -11,20 +11,22 @@
         >
           <img :src="obj.img" :alt="obj.heading" class="w-full h-full" />
         </div>
-        <div class="pt-20 pb-5 text-center">
+        <div class="pt-12 pb-10 px-10 text-center">
           <h3 class="text-center heading-6 heading">
             {{ obj.heading }}
           </h3>
-          <button
-            class="opacity-50 items-center text-black text-[13px] font-bold font-['Manrope'] uppercase tracking-wide hover:text-[#d87d4a] duration-200"
-          >
-            Shop
-            <img
-              src="../assets/shared/desktop/icon-arrow-right.svg"
-              alt=""
-              class="inline-block ml-2"
-            />
-          </button>
+          <router-link :to="obj.heading">
+            <button
+              class="opacity-50 items-center text-black text-[13px] font-bold font-['Manrope'] uppercase tracking-wide hover:text-[#d87d4a] duration-200"
+            >
+              Shop
+              <img
+                src="../assets/shared/desktop/icon-arrow-right.svg"
+                alt=""
+                class="inline-block ml-2"
+              />
+            </button>
+          </router-link>
         </div>
       </li>
     </ul>

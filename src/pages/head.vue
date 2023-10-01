@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="flex flex-col space-y-24">
     <Cheader />
-
-    <h1 class="text-black">oqish</h1>
+    <MainProductDetailVue :mainProduct="filtered" />
     <FeaturesVue :objValue="filtered" />
-    <!-- <GalleryVue :galleryValue="filtered[0].gallery" /> -->
+    <GalleryVue :galleryValue="filtered[0].gallery" />
     <Others :othersValue="filtered[0].others" />
     <Category />
-    <!-- <PrefooterVue />
-    <Cfooter /> -->
+    <PrefooterVue />
+    <Cfooter />
   </div>
 </template>
 
@@ -22,6 +21,9 @@ import Others from "../components/Others.vue";
 import Category from "../components/Category.vue";
 import Cfooter from "../components/Cfooter.vue";
 import PrefooterVue from "../components/Prefooter.vue";
+import ProductDetailVue from "../components/Product-detail.vue";
+import MainProductDetailVue from "../components/MainProductDetail.vue";
+MainProductDetailVue;
 
 const route = useRoute();
 const routeId = ref(route.params.id);
@@ -33,7 +35,5 @@ fetch("/src/data.json")
     filtered.value = data.filter((item) => {
       return item.id == parseInt(routeId.value);
     });
-    console.log(filtered.value[0].others, "others");
-    console.log(filtered.value[0].gallery, "fil");
   });
 </script>
