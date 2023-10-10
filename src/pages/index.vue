@@ -3,32 +3,36 @@
     <div class="pb-24">
       <Cheader />
       <div class="backimage flex items-center">
-        <div class="flex flex-col max-w-[500px] space-y-5 py-32 pl-[150px]">
-          <span
-            v-if="headphones[0].new"
-            class="opacity-50 text-white text-sm font-normal font-['Manrope'] uppercase tracking-[10px]"
-            >NEW PRODUCT</span
+        <div class="container">
+          <div
+            class="flex flex-col max-w-[500px] space-y-5 my-[100px] mb-[220px]"
           >
-          <heading2
-            class="!text-white text-[56px] font-bold font-['Manrope'] uppercase leading-[58px] tracking-widest sm:heading2 w-full"
-            >{{ headphones[0].name }}</heading2
-          >
-          <paragraph
-            class="w-full opacity-75 text-white text-[15px] font-medium font-['Manrope'] leading-[25px]"
-          >
-            {{ headphones[0].description }}
-          </paragraph>
-          <router-link :to="'/' + headphones[0].id">
-            <cbutton />
-          </router-link>
-        </div>
-        <!-- <div class="w-[540px] h-[560px] relative bg-none">
+            <span
+              v-if="headphones[0].new"
+              class="opacity-50 text-white text-sm font-normal font-['Manrope'] uppercase tracking-[10px]"
+              >NEW PRODUCT</span
+            >
+            <heading2
+              class="!text-white text-[56px] font-bold font-['Manrope'] uppercase leading-[58px] tracking-widest sm:heading2 w-full"
+              >{{ headphones[0].name }}</heading2
+            >
+            <paragraph
+              class="w-full opacity-75 text-white text-[15px] font-medium font-['Manrope'] leading-[25px]"
+            >
+              {{ headphones[0].description }}
+            </paragraph>
+            <router-link :to="'/' + headphones[0].id">
+              <cbutton />
+            </router-link>
+          </div>
+          <!-- <div class="w-[540px] h-[560px] relative bg-none">
           <img
             src="../assets/home/desktop/image-hero.jpg"
             alt=""
             class="w-full h-full object-cover"
           />
         </div> -->
+        </div>
       </div>
     </div>
 
@@ -57,12 +61,14 @@
         </div>
       </div>
 
-      <div class="flex justify-between items-center sm:flex-nowrap flex-wrap">
+      <div class="flex justify-between items-center md:flex-nowrap flex-wrap">
         <img src="../assets/home/desktop/image-earphones-yx1.jpg" alt="" />
-        <div class="flex flex-col space-y-5 bg-[#dedede] p-11 py-[110px]">
+        <div
+          class="flex flex-col ml-2 space-y-5 bg-[#dedede] p-11 py-[110px] max-w-[500px] w-full"
+        >
           <heading2
             class="text-black text-[28px] font-bold font-['Manrope'] uppercase tracking-widest sm:heading2 w-full"
-            >{{ earphones[0].name }}</heading2
+            >{{ earphones[0].slug }}</heading2
           >
           <router-link :to="'/' + earphones[0].id">
             <button

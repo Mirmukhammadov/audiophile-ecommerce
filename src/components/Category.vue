@@ -1,10 +1,10 @@
 <template>
   <div
-    class="flex sm:flex-row flex-col sm:mt-[200px] justify-between items-center container"
+    class="flex md:flex-row flex-col md:space-y-0 space-y-12 sm:mt-[200px] justify-between items-center container"
   >
     <ul v-for="obj in categoryValue" :key="obj.id" class="mt-10 sm:mt-0">
       <li
-        class="relative bg-zinc-100 rounded-lg md:px-[60px] sm:px-10 px-14 text-center flex-col flex"
+        class="relative bg-zinc-100 rounded-lg md:px-[30px] sm:px-20 px-14 text-center flex-col flex"
       >
         <div
           class="max-w-[123px] max-h-[160px] absolute left-1/2 top-[10%] transform -translate-x-1/2 -translate-y-1/2"
