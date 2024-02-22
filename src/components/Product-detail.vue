@@ -26,7 +26,9 @@
       >
         {{ props.headphoneValue.description }}
       </paragraph>
-      <cbutton @click="$emit('buttonclicked', props.headphoneValue.id)" />
+      <cbutton @click="$emit('buttonclicked', props.headphoneValue.id)"
+        >See Product</cbutton
+      >
     </div>
   </div>
 </template>

@@ -20,11 +20,13 @@
         </div>
         <CnavListVue class="w-full max-w-[430px] text-center hide" />
         <div>
-          <img
-            src="../assets/shared/desktop/icon-cart.svg"
-            alt=""
-            class="cursor-pointer"
-          />
+          <button @click="toggleCartValue">
+            <img
+              src="../assets/shared/desktop/icon-cart.svg"
+              alt=""
+              class="cursor-pointer"
+            />
+          </button>
         </div>
       </nav>
       <span class="opacity-20 bg-white block h-px w-full"></span>
@@ -40,9 +42,16 @@
 
 <script setup>
 import CnavListVue from "./Cnav-list.vue";
-import { defineProps } from "vue";
+import { defineProps, ref, defineEmits } from "vue";
 
 const props = defineProps(["categoryName"]);
+const cartValue = ref(false);
+const emit = defineEmits();
+
+function toggleCartValue() {
+  cartValue.value = !cartValue.value;
+  emit("toggleCartValue", cartValue.value);
+}
 </script>
 
 <style scoped>

@@ -15,7 +15,7 @@
         <div class="text-center space-y-9">
           <p class="heading heading-5">{{ item.name }}</p>
 
-          <CbuttonVue class="items-center" />
+          <CbuttonVue class="items-center">See Product</CbuttonVue>
         </div>
       </li>
     </ul>

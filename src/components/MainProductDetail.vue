@@ -28,15 +28,65 @@
       >
         ${{ props.mainProduct[0].price }}</span
       >
-      <cbutton />
+      <div class="flex justify-start space-x-3 pt-8">
+        <div
+          class="flex bg-[#f1f1f1] max-w-[120px] w-full justify-between items-center px-4 py-2"
+        >
+          <button
+            class="w-4 opacity-25 text-center text-black text-[13px] font-bold font-['Manrope'] uppercase tracking-wide"
+            @click="minusFuntion"
+          >
+            -
+          </button>
+          <p
+            class="w-4 text-center text-black text-[13px] font-bold font-['Manrope'] uppercase tracking-wide"
+          >
+            {{ itemCount }}
+          </p>
+          <button
+            class="w-4 opacity-25 text-center text-black text-[13px] font-bold font-['Manrope'] uppercase tracking-wide"
+            @click="itemCount++"
+          >
+            +
+          </button>
+        </div>
+        <cbutton @click="addToCart">Add to Cart</cbutton>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, defineProps } from "vue";
+import { useMyModule } from "../store/modules/myModule";
+const myModule = useMyModule();
 const props = defineProps(["mainProduct"]);
-console.log(props.mainProduct.value, "main");
+const itemCount = ref(1);
+function minusFuntion() {
+  if (itemCount.value > 1) {
+    itemCount.value--;
+  }
+}
+
+function addToCart() {
+  const product = props.mainProduct[0];
+  const quantity = itemCount.value;
+
+  // Check if the product is already in the cartArr
+  const existingCartItem = myModule.cartArr.find(
+    (item) => item.product === product
+  );
+
+  if (existingCartItem) {
+    // If the product is found, update the quantity
+    existingCartItem.quantity = quantity;
+  } else {
+    // If the product is not found, add a new entry
+    const cartItem = { product, quantity };
+    console.log(cartItem);
+    myModule.addObjectToStore(cartItem);
+  }
+}
 
 import cbutton from "./Cbutton.vue";
 </script>

@@ -1,11 +1,19 @@
 <template>
-  <div>
+  <div
+    class="absolute top-[20%] right-[10%] bg-white rounded-lg cartopened"
+    v-if="cart"
+  >
+    <Cart v-if="cart" />
+  </div>
+
+  <div :class="{ 'opacity-50': cart, 'max-h-100px': cart }">
     <div class="pb-24">
-      <Cheader />
+      <Cheader @toggleCartValue="getvalue" />
+
       <div class="backimage flex items-center">
         <div class="container">
           <div
-            class="flex flex-col max-w-[500px] space-y-5 my-[100px] mb-[220px]"
+            class="flex flex-col max-w-[500px] space-y-5 mt-[100px] mb-[250px]"
           >
             <span
               v-if="headphones[0].new"
@@ -22,16 +30,16 @@
               {{ headphones[0].description }}
             </paragraph>
             <router-link :to="'/' + headphones[0].id">
-              <cbutton />
+              <cbutton>See Product</cbutton>
             </router-link>
           </div>
           <!-- <div class="w-[540px] h-[560px] relative bg-none">
-          <img
-            src="../assets/home/desktop/image-hero.jpg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div> -->
+        <img
+        src="../assets/home/desktop/image-hero.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+        />
+      </div> -->
         </div>
       </div>
     </div>
@@ -104,6 +112,7 @@ import Prefooter from "../components/Prefooter.vue";
 
 import Cbutton from "../components/Cbutton.vue";
 import Productdetail from "../components/Product-detail.vue";
+import Cart from "../components/Cart.vue";
 //   import headpones from "./pages/headpones/index.vue";
 //   import speakers from "./pages/speakers/index.vue";
 //   import earphones from "./pages/earphones/index.vue";
@@ -113,6 +122,10 @@ const headphones = ref();
 const speaker1 = ref();
 const speaker2 = ref();
 const earphones = ref();
+const cart = ref();
+function getvalue(item) {
+  cart.value = item;
+}
 
 function getData(variable, name) {
   fetch("/src/data.json")
@@ -121,7 +134,6 @@ function getData(variable, name) {
       variable.value = data.filter((item) => {
         return item.name == name;
       });
-      console.log(variable.value, name);
     });
 }
 
@@ -130,11 +142,11 @@ getData(speaker1, "ZX9 Speaker");
 getData(speaker2, "ZX7 Speaker");
 getData(earphones, "YX1 Wireless Earphones");
 
-fetch("/src/data.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
+// fetch("/src/data.json")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
 </script>
 
 <style scoped>
@@ -145,4 +157,12 @@ fetch("/src/data.json")
   background-position: center center;
   background-repeat: no-repeat;
 }
+
+/* .cartopened {
+  position: fixed;
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+} */
 </style>

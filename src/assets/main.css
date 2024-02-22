@@ -59,3 +59,11 @@
   line-height: 25px;
   word-wrap: break-word;
 }
+
+.cartopened {
+  position: fixed;
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

@@ -1,6 +1,14 @@
 <template>
-  <div>
-    <Cheader :categoryName="speakers[0].category" />
+  <div
+    class="absolute top-[20%] right-[10%] bg-white rounded-lg cartopened"
+    v-if="cart"
+  >
+    <Cart v-if="cart" />
+  </div>
+
+  <div :class="{ 'opacity-50': cart, 'max-h-100px': cart }">
+    <Cheader :categoryName="speakers[0].category" @toggleCartValue="getvalue" />
+
     <div v-for="item in speakers" :key="item.id">
       <div class="mt-[100px]">
         <router-link :to="'/' + item.id">
@@ -27,8 +35,13 @@ import Cheader from "@/components/Cheader.vue";
 import PrefooterVue from "../components/Prefooter.vue";
 import CategoryVue from "../components/Category.vue";
 import CfooterVue from "../components/Cfooter.vue";
+import Cart from "../components/Cart.vue";
 
 const speakers = ref([]);
+const cart = ref();
+function getvalue(item) {
+  cart.value = item;
+}
 fetch("/src/data.json")
   .then((response) => response.json())
   .then((data) => {
