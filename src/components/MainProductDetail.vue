@@ -83,7 +83,6 @@ function addToCart() {
   } else {
     // If the product is not found, add a new entry
     const cartItem = { product, quantity };
-    console.log(cartItem);
     myModule.addObjectToStore(cartItem);
   }
 }

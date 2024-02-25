@@ -141,12 +141,6 @@ getData(headphones, "XX99 Mark II Headphones");
 getData(speaker1, "ZX9 Speaker");
 getData(speaker2, "ZX7 Speaker");
 getData(earphones, "YX1 Wireless Earphones");
-
-// fetch("/src/data.json")
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data);
-//   });
 </script>
 
 <style scoped>

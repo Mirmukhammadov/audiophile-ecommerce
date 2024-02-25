@@ -38,7 +38,6 @@ import Cart from "../components/Cart.vue";
 MainProductDetailVue;
 
 function getvalue(item) {
-  console.log(item, "index");
   cart.value = item;
 }
 const cart = ref();

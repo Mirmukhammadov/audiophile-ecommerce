@@ -19,7 +19,7 @@
     }"
   >
     <Cheader @toggleCartValue="getvalue" />
-    <div class="container flex items-start gap-4">
+    <div class="container flex items-start gap-4 !mb-[100px]">
       <!-- <Cfooter /> -->
       <div class="w-[730px] bg-white rounded-lg mt-20 px-8 py-4">
         <h2 class="heading3 heading my-10">CHECKOUT</h2>
@@ -188,6 +188,7 @@
         <Cbutton class="w-[300px] mt-4">Continue&Pay</Cbutton>
       </div>
     </div>
+    <Cfooter />
   </div>
 </template>
 <script setup>
@@ -236,24 +237,10 @@ const v$ = useVuelidate(rules, state);
 
 function submitForm() {
   v$.value.$touch();
-  console.log(state.value);
-  console.log(v$.value.$error, "satte");
-
-  console.log(v$.value.name.$error);
-  console.log(state.value.name, v$.value.name?.$error);
-  console.log("Email error:", v$.value.email?.$error);
-  console.log("Number error:", v$.value.number?.$error);
-  console.log("Address error:", v$.value.address?.$error);
-  console.log("Zip error:", v$.value.zip?.$error);
-  console.log("City error:", v$.value.city?.$error);
-
   if (!v$.value.$error) {
-    console.log("All inputs are valid");
     thank.value = true;
     myModule.cartArr = [];
     localStorage.removeItem("cartArr");
-  } else {
-    console.log("There are validation errors");
   }
 }
 </script>

@@ -27,5 +27,4 @@ import CbuttonVue from "./Cbutton.vue";
 import { defineProps } from "vue";
 
 const props = defineProps(["othersValue"]);
-console.log(props.othersValue, "othersvalue");
 </script>
