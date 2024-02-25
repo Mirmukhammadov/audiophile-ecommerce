@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <thanks v-if="thank" />
+  </div>
   <div
     class="absolute top-[20%] right-[10%] bg-white rounded-lg cartopened"
     v-if="cart"
@@ -8,7 +11,12 @@
 
   <div
     class="bg-[#f1f1f1]"
-    :class="{ 'opacity-50': cart, 'max-h-100px': cart }"
+    :class="{
+      'opacity-50': cart,
+      'max-h-100px': cart,
+      'opacity-50': thank,
+      'max-h-100px': thank,
+    }"
   >
     <Cheader @toggleCartValue="getvalue" />
     <div class="container flex items-start gap-4">
@@ -20,86 +28,116 @@
         >
           Billing Details
         </p>
-        <div class="flex justify-between flex-wrap gap-6">
-          <CInputVue
-            label="Username"
-            type="text"
-            id="username"
-            name="username"
-            v-model="username"
-            placeholder="Enter your username"
-            :error="usernameError"
-          />
 
-          <CInputVue
-            label="Email Address"
-            type="email"
-            id="email"
-            name="email"
-            v-model="email"
-            placeholder="alexei@mail.com"
-            :error="emailError"
-          />
+        <form action="" @submit.prevent="submitForm()">
+          <div class="flex flex-wrap justify-between gap-4">
+            <div class="flex flex-col">
+              <label class="m-1" for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                v-model="state.name"
+                class="inputStyle"
+                :class="{
+                  '!border-[red]': v$.name?.$error,
+                }"
+                placeholder="Alexei Ward"
+              />
+              <span v-if="v$.name?.$error" class="text-[red]"
+                >fill the field correctly</span
+              >
+            </div>
+            <div class="flex flex-col">
+              <label class="m-1" for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                v-model="state.email"
+                class="inputStyle"
+                :class="{
+                  '!border-[red]': v$.email?.$error,
+                }"
+                placeholder="alexei@mail.com"
+              />
+              <span v-if="v$.email?.$error" class="text-[red]"
+                >fill the field correctly</span
+              >
+            </div>
+            <div class="flex flex-col">
+              <label class="m-1" for="number">Phone Number</label>
+              <input
+                type="number"
+                id="number"
+                v-model="state.number"
+                class="inputStyle"
+                :class="{
+                  '!border-[red]': v$.number?.$error,
+                }"
+                placeholder="+1 202-555-0136"
+              />
+              <span v-if="v$.number?.$error" class="text-[red]"
+                >fill the field correctly</span
+              >
+            </div>
+          </div>
 
-          <CInputVue
-            label="Phone Number"
-            type="Number"
-            id="phone_number"
-            name="phone_number"
-            v-model="phoneNumber"
-            placeholder="+1 202-555-0136"
-            :error="phoneNumberError"
-          />
-        </div>
-
-        <p
-          class="text-orange-400 text-[13px] font-bold font-['Manrope'] leading-[25px] tracking-wide my-8 uppercase"
-        >
-          shipping info
-        </p>
-        <div class="flex justify-between flex-wrap gap-6">
-          <CInputVue
-            label="Address"
-            type="text"
-            id="adress"
-            name="address"
-            v-model="address"
-            placeholder="1137 Williams Avenue"
-            :error="addressError"
-            class=""
-          />
-
-          <CInputVue
-            label="ZIP Code"
-            type="text"
-            id="zipcode"
-            name="zipcode"
-            v-model="zipCode"
-            placeholder="10001"
-            :error="zipCodeError"
-          />
-
-          <CInputVue
-            label="City"
-            type="text"
-            id="city"
-            name="city"
-            v-model="city"
-            placeholder="New York"
-            :error="cityError"
-          />
-
-          <CInputVue
-            label="Country"
-            type="text"
-            id="country"
-            name="country"
-            v-model="country"
-            placeholder="United States"
-            :error="countryError"
-            class=""
-          />
-        </div>
+          <p
+            class="text-orange-400 text-[13px] font-bold font-['Manrope'] uppercase leading-[25px] tracking-wide m-4"
+          >
+            shipping info
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="flex flex-col">
+              <label class="m-1" for="address">Address</label>
+              <input
+                type="text"
+                id="address"
+                v-model="state.address"
+                class="inputStyle"
+                :class="{
+                  '!border-[red]': v$.address?.$error,
+                }"
+                placeholder="1137 Williams Avenue"
+              />
+              <span v-if="v$.address?.$error" class="text-[red]"
+                >fill the field correctly</span
+              >
+            </div>
+            <div class="flex flex-col">
+              <label class="m-1" for="zipcode">ZIP Code</label>
+              <input
+                type="number"
+                id="zipcode"
+                v-model="state.zip"
+                class="inputStyle"
+                :class="{
+                  '!border-[red]': v$.zip?.$error,
+                }"
+                placeholder="10001"
+              />
+              <span v-if="v$.zip?.$error" class="text-[red]"
+                >fill the field correctly</span
+              >
+            </div>
+            <div class="flex flex-col">
+              <label class="m-1" for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                v-model="state.city"
+                :class="{
+                  '!border-[red]': v$.city?.$error,
+                }"
+                class="inputStyle"
+                placeholder="New York"
+              />
+              <span v-if="v$.city?.$error" class="text-[red]"
+                >fill the field correctly</span
+              >
+            </div>
+          </div>
+          <Cbutton class="mt-2 mr-2" type="submit">submit</Cbutton>
+        </form>
       </div>
 
       <div class="w-[350px] bg-white rounded-lg mt-20 px-8 py-4">
@@ -158,11 +196,14 @@ import Cfooter from "../components/Cfooter.vue";
 import CInputVue from "../components/CInput.vue";
 import Cart from "../components/Cart.vue";
 import Cbutton from "../components/Cbutton.vue";
+import thanks from "../components/Thanks.vue";
 import { useMyModule } from "../store/modules/myModule";
+import { useVuelidate } from "@vuelidate/core";
+import { required, email, numeric } from "@vuelidate/validators";
 import { ref } from "vue";
 const myModule = useMyModule();
 const productArray = myModule.cartArr;
-
+const thank = ref(false);
 let total = 0;
 const cart = ref("");
 productArray.forEach((item) => {
@@ -170,22 +211,68 @@ productArray.forEach((item) => {
 });
 
 function getvalue(item) {
-  console.log(item, "index");
   cart.value = item;
 }
-const username = ref("");
-const usernameError = ref("");
-const email = ref("");
-const emailError = ref("");
-const phoneNumber = ref("");
-const phoneNumberError = ref("");
 
-const address = ref("");
-const addressError = ref("");
-const zipCode = ref("");
-const zipCodeError = ref("");
-const city = ref("");
-const cityError = ref("");
-const country = ref("");
-const countryError = ref("");
+const state = ref({
+  name: "",
+  email: "",
+  number: "",
+  address: "",
+  zip: "",
+  city: "",
+});
+
+const rules = {
+  name: { required },
+  email: { required, email },
+  number: { required, numeric },
+  address: { required },
+  zip: { required, numeric },
+  city: { required },
+};
+
+const v$ = useVuelidate(rules, state);
+
+function submitForm() {
+  v$.value.$touch();
+  console.log(state.value);
+  console.log(v$.value.$error, "satte");
+
+  console.log(v$.value.name.$error);
+  console.log(state.value.name, v$.value.name?.$error);
+  console.log("Email error:", v$.value.email?.$error);
+  console.log("Number error:", v$.value.number?.$error);
+  console.log("Address error:", v$.value.address?.$error);
+  console.log("Zip error:", v$.value.zip?.$error);
+  console.log("City error:", v$.value.city?.$error);
+
+  if (!v$.value.$error) {
+    console.log("All inputs are valid");
+    thank.value = true;
+    myModule.cartArr = [];
+    localStorage.removeItem("cartArr");
+  } else {
+    console.log("There are validation errors");
+  }
+}
 </script>
+
+<style scoped>
+.inputStyle {
+  padding: 4px;
+  padding-left: 12px;
+  outline: none;
+  width: 309px;
+  height: 56px;
+  background: white;
+  border-radius: 8px;
+  border: 1px #cfcfcf solid;
+  opacity: 0.4;
+  color: black;
+  font-size: 16px;
+  font-family: Manrope;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+</style>
