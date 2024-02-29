@@ -48,7 +48,7 @@ const cart = ref();
 function getvalue(item) {
   cart.value = item;
 }
-fetch("/src/data.json")
+fetch("/src/data1.json")
   .then((response) => response.json())
   .then((data) => {
     headphone.value = data.filter((item) => {

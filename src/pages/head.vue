@@ -45,7 +45,7 @@ const route = useRoute();
 const routeId = ref(route.params.id);
 const filtered = ref([]);
 
-fetch("/src/data.json")
+fetch("/src/data1.json")
   .then((response) => response.json())
   .then((data) => {
     filtered.value = data.filter((item) => {
