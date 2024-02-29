@@ -128,7 +128,7 @@ function getvalue(item) {
 }
 
 function getData(variable, name) {
-  fetch("/src/data.json")
+  fetch("/src/data1.json")
     .then((response) => response.json())
     .then((data) => {
       variable.value = data.filter((item) => {
